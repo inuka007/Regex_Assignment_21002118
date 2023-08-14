@@ -20,19 +20,19 @@ def pi_function(String, Pattern, start, pi_array):
 def KMP_algorithm(String, Pattern):
     pi = []
     for i in range(len(Pattern) + 1):
-        postfix = []
+        suffix = []
         prefix = []
 
         sub_string = "".join(Pattern[: i])
 
         for j in range(1, i):
             prefix.append(sub_string[: j])
-            postfix.append(sub_string[i - j:])
+            suffix.append(sub_string[i - j:])
 
         len_max = 0 #longest pre-fix
 
         for j in range(len(prefix)):
-            if prefix[j] in postfix:
+            if prefix[j] in suffix:
                 if len(prefix[j]) > len_max:
                     len_max = len(prefix[j])
 
